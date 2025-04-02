@@ -1,0 +1,69 @@
+type NFTPresaleManager_EIP712DomainChanged {
+  id: ID!
+}
+
+type NFTPresaleManager_MaxNFTPerWalletUpdated {
+  id: ID!
+  roundId: BigInt!
+  maxNFTPerWallet: BigInt!
+}
+
+type NFTPresaleManager_NFTPurchased {
+  id: ID!
+  buyer: String!
+  tokenId: BigInt!
+}
+
+type NFTPresaleManager_OwnershipTransferred {
+  id: ID!
+  previousOwner: String!
+  newOwner: String!
+}
+
+type NFTPresaleManager_PaymentTokenUpdated {
+  id: ID!
+  token: String!
+  accepted: Boolean!
+}
+
+type NFTPresaleManager_ReferralCommissionPaid {
+  id: ID!
+  referrer: String!
+  buyer: String!
+  amount: BigInt!
+}
+
+type NFTPresaleManager_RemovedFromWhitelist {
+  id: ID!
+  account: String!
+}
+
+type NFTPresaleManager_SaleRoundCreated {
+  id: ID!
+  roundId: BigInt!
+}
+
+type NFTPresaleManager_Whitelisted {
+  id: ID!
+  account: String!
+}
+
+
+type NFTPresaleManager_User @entity {
+  id: ID! # Address of the user
+  items: [NFTPresaleManager_Item!]! @derivedFrom(field: "owner")
+}
+
+type NFTPresaleManager_Item @entity {
+  id: ID! # Contract address + tokenId
+  tokenId: BigInt!
+  amount: BigInt!
+  tx_hash: String!
+  owner: NFTPresaleManager_User!
+}
+
+type NFTPresaleManager_Count @entity {
+  id: ID!
+  count: BigInt!
+}
+
