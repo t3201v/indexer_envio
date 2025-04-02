@@ -1,12 +1,12 @@
 # yaml-language-server: $schema=./node_modules/envio/evm.schema.json
 name: uphone
 networks:
-- id: 56
-  start_block: 45023730
+- id: 97
+  start_block: 46663010
   contracts:
   - name: NFTPresaleManager
     address:
-    - 0xbf6f533Ac6f9E14C8A36519C2d53489Eb2d70f17
+    - 0x47FD26a59a3f22f5d5191Cc1c832122038520aE1
     handler: src/EventHandlers.ts
     events:
     - event: EIP712DomainChanged()
